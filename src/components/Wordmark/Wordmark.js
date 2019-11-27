@@ -4,6 +4,5 @@ import * as S from './styles'
 
 export default props =>
   <S.WordmarkComponent {...props}>
-    <S.StyledNovaSmall />
-    <S.Text>Nova</S.Text>
+    <S.Text>Weirdness Calculator</S.Text>
   </S.WordmarkComponent>

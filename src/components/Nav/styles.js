@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Link } from 'react-router-dom'
 
-import { Breakpoints, Colors, Sizes } from 'app/styles'
+import { Colors, Sizes } from 'app/styles'
 import { Button } from 'app/ui-kit'
 
 export const NavComponent = styled.header`
@@ -18,10 +18,6 @@ export const NavComponent = styled.header`
   left: 0;
   z-index: 3;
   backdrop-filter: blur(5px);
-
-  @media(max-width: ${Breakpoints.main}) {
-    display: none;
-  }
 `
 
 export const LogoLink = styled(Link)`
