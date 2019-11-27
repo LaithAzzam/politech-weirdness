@@ -1,0 +1,22 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import Tech from './Tech'
+import { ReactLogo } from 'app/ui-kit/Icons'
+
+<Meta title='Components|Tech' component={Tech} />
+
+# Tech
+
+<Preview>
+  <Story name='Default'>
+    <Tech
+      data={{
+        display: 'React',
+        description: 'Industry leading UI framework',
+        url: '/docs',
+        icon: <ReactLogo />
+      }}
+    />
+  </Story>
+</Preview>
+
+<Props of={Tech} />
