@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Colors } from 'app/styles'
 
 export const PrivacyPage = styled.main`
-  min-height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

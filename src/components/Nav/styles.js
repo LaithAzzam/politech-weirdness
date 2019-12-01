@@ -11,7 +11,7 @@ export const NavComponent = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 ${Sizes.xAppPadding};
+  padding: 0 ${Sizes.paddingMedium};
   box-sizing: border-box;
   position: fixed;
   top: 0;
