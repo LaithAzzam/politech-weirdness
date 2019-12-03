@@ -32,4 +32,5 @@ export const SearchActions = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: ${Sizes.paddingSmall} 0 ${Sizes.paddingLarge} 0;
 `

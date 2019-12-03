@@ -45,7 +45,7 @@ export default class LikedGifs extends Component {
 
     return (
       <S.LikedGifsComponent>
-        {likedImages
+        {likedImages?.length > 0
           ? <this.LikedImages />
           : <this.GetStarted />}
       </S.LikedGifsComponent>

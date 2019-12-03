@@ -23,13 +23,23 @@ export default class SearchSection extends Component {
     const searchTerm = match?.params?.searchTerm
     const weirdness = match?.params?.weirdness
 
+    // Set initial form values
     formApi.setValues({ searchTerm, weirdness })
+  }
+
+  componentDidUpdate = (prevProps) => {
+    const { match, formApi } = this.props
+    const prevSearchTerm = prevProps?.match?.params.searchTerm
+    const searchTerm = match?.params.searchTerm
+
+    // Reset Search Input
+    if (!searchTerm && prevSearchTerm) formApi.setValues({ searchTerm: null, weirdness: null })
   }
 
   SearchSteps = () => {
     const searchSteps = [
       'We\'ll show you the least weird ones to start.',
-      'you can move the slider to make them weirder.',
+      'you can move a slider to make them weirder.',
       'When you find a GIF you like, press the Like button.',
       'Once you like 5 GIFs, we\'ll show you how weird you are.'
     ]
