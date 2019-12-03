@@ -14,15 +14,15 @@ export default [{
         exact: true,
         component: Home,
         meta: {
-          title: 'Nova',
-          description: 'An opinionated starting point for web applications.'
+          title: 'Politech Weirdness',
+          description: 'Lets get weird.'
         }
       }, {
         path: '/faq',
         exact: true,
         component: Faq,
         meta: {
-          title: 'Nova - FAQ',
+          title: 'Politech Weirdness - FAQ',
           description: 'Frequently asked questions'
         }
       }, {
@@ -30,15 +30,15 @@ export default [{
         exact: true,
         component: Privacy,
         meta: {
-          title: 'Nova - Privacy Policy',
+          title: 'Politech Weirdness - Privacy Policy',
           description: 'Privacy policy'
         }
       }, {
         path: '*',
         component: NotFound,
         meta: {
-          title: 'Nova - Not found',
-          description: 'An opinionated starting point for web applications.'
+          title: 'Politech Weirdness - Not found',
+          description: 'Lets get weird.'
         }
       }]
     }]
