@@ -53,6 +53,19 @@ export default class Home extends Component {
     }, 500)
   }
 
+  handleWeirdnessChange = (weirdness) => {
+    const { images, history, match } = this.props
+    const searchTerm = match?.params?.searchTerm
+    history.push(`/${searchTerm}/${weirdness}`)
+
+    if (images?.[searchTerm]?.[weirdness]) return
+    if (this.timeout) clearTimeout(this.timeout)
+
+    this.timeout = setTimeout(() => {
+      Giphy.translateGif(searchTerm, weirdness)
+    }, 500)
+  }
+
   render () {
     const { match, images } = this.props
     const { searchTerm, weirdness } = match?.params
@@ -64,10 +77,10 @@ export default class Home extends Component {
           <SearchSection initialValues={{ searchTerm, weirdness }} onChange={this.handleGifySearch} />
           {image &&
             <S.SearchActions>
-              <WeirdnessSlider />
+              <WeirdnessSlider onChange={this.handleWeirdnessChange} />
               <LikeButton />
             </S.SearchActions>}
-          <SearchResults loading={!image && searchTerm} />
+          <SearchResults loading={!image?.[weirdness] && searchTerm} />
         </S.SearchComponents>
         <LikedGifs />
       </S.HomePage>

@@ -16,9 +16,9 @@ const mapStateToProps = (state) => {
 export default class SearchResults extends Component {
   render () {
     const { match, images, loading } = this.props
-    const { searchTerm } = match?.params
+    const { searchTerm, weirdness } = match?.params
 
-    const results = images?.[searchTerm]
+    const results = images?.[searchTerm]?.[weirdness]
     // eslint-disable-next-line camelcase
     const gifUrl = results?.data?.images?.fixed_width?.url
 

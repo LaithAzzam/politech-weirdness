@@ -1,22 +1,15 @@
 import React, { Component } from 'react'
 import { withFormState, withFormApi } from 'informed'
-import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 import * as S from './styles'
 import { searchField } from 'app/data'
 import withInformed from '../withInformed/withInformed'
 
-const mapStateToProps = (state) => {
-  const { images } = state.giphy
-  return { images }
-}
-
 @withInformed
 @withFormState
 @withFormApi
 @withRouter
-@connect(mapStateToProps)
 export default class SearchSection extends Component {
   componentDidMount = () => {
     const { match, formApi } = this.props

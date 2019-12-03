@@ -13,7 +13,7 @@ export default class Giphy {
       method: 'GET',
       url: requestUrl,
       prefix,
-      storeKey: ['images', searchTerm]
+      storeKey: ['images', searchTerm, weirdness]
     }
 
     const action = await createApiAction(options)
