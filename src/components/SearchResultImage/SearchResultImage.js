@@ -9,6 +9,7 @@ export default class SearchResultImage extends Component {
     return (
       <S.SearchResultImageComponent {...this.props}>
         {!imageUrl && <S.StyledImageIcon />}
+        <img src={imageUrl} />
       </S.SearchResultImageComponent>
     )
   }

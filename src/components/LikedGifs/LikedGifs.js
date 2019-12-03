@@ -3,7 +3,8 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import * as S from './styles'
-import { SearchResultImage } from 'app/components'
+import { Button } from 'app/ui-kit'
+import { openModal } from 'app/store/app/actions'
 
 const mapStateToProps = (state) => {
   const { likedImages } = state.app
@@ -11,24 +12,31 @@ const mapStateToProps = (state) => {
 }
 
 @withRouter
-@connect(mapStateToProps)
+@connect(mapStateToProps, { openModal })
 export default class LikedGifs extends Component {
   LikedImages = () => {
-    const { likedImages } = this.props
+    const { likedImages, openModal } = this.props
+    const remaining = 5 - likedImages.length
+    const isFilled = remaining <= 0
+    const title = isFilled ? 'You\'re all set!' : 'Keep it goin!'
+    const subTitle = isFilled ? 'Click Caculate to receive your score.' : `Like ${remaining} more images to get a weirdness score.`
     return (
-      <div>
-        {likedImages.map((image, index) => <SearchResultImage imageUrl={image.imageUrl} key={index} />)}
-      </div>
+      <>
+        <h4>{title}</h4>
+        <p>{subTitle}</p>
+        <Button disabled={remaining >= 1} onClick={() => { openModal({ name: 'ResultsModal' }) }}>Calculate</Button>
+        {likedImages.map((image, index) => <S.StyledSearchResultImage imageUrl={image.imageUrl} key={index} />)}
+      </>
     )
   }
 
   GetStarted = () => {
     return (
-      <S.WarningMessage>
+      <>
         <h4>You haven't liked any gifs yet.</h4>
         <p>Search for an image to get started</p>
-        <SearchResultImage />
-      </S.WarningMessage>
+        <S.StyledSearchResultImage />
+      </>
     )
   }
 

@@ -19,7 +19,6 @@ export default class LikeButton extends Component {
     const { match, images, setLikedImages, likedImages } = this.props
     const { searchTerm, weirdness } = match?.params
     const results = images?.[searchTerm]
-    console.log('results: ', results)
     // eslint-disable-next-line camelcase
     const imageUrl = results?.data?.images?.fixed_width?.url
 

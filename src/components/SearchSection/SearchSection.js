@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom'
 
 import * as S from './styles'
 import { weirdnessField } from 'app/data'
-import { Giphy } from 'app/api/giphy'
 import withInformed from '../withInformed/withInformed'
 
 const mapStateToProps = (state) => {
@@ -27,18 +26,6 @@ export default class SearchSection extends Component {
     formApi.setValues({ searchTerm, weirdness })
   }
 
-  handleSearchTerm = (event) => {
-    const { images, history } = this.props
-    const searchTerm = event.target.value
-
-    if (!searchTerm || images?.[searchTerm]) return null
-    if (this.timeout) clearTimeout(this.timeout)
-    this.timeout = setTimeout(() => {
-      history.push(`/${searchTerm}`)
-      Giphy.translateGif(searchTerm)
-    }, 500)
-  }
-
   SearchSteps = () => {
     const searchSteps = [
       'We\'ll show you the least weird ones to start.',
@@ -57,11 +44,12 @@ export default class SearchSection extends Component {
   }
 
   render () {
+    const { onChange } = this.props
     return (
       <S.SearchSectionComponent>
         <S.SearchTitle>Find out how weird you are by selecting the GIFs that make you laugh.</S.SearchTitle>
         <this.SearchSteps />
-        <S.StyledSearch {...weirdnessField.searchTerm} onChange={this.handleSearchTerm} disableError />
+        <S.StyledSearch {...weirdnessField.searchTerm} onChange={(event) => { onChange(event.target.value) }} disableError />
       </S.SearchSectionComponent>
     )
   }
