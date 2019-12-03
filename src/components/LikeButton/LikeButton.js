@@ -36,9 +36,12 @@ export default class LikeButton extends Component {
   }
 
   render () {
+    const { likedImages } = this.props
+    const likeDisabled = likedImages?.length >= 5
+
     return (
       <S.LikeButtonComponent>
-        <Button onClick={this.handleLike}>Like</Button>
+        <Button onClick={this.handleLike} disabled={likeDisabled}>Like</Button>
       </S.LikeButtonComponent>
     )
   }

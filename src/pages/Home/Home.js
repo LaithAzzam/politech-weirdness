@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import * as S from './styles'
 import {
@@ -11,9 +12,15 @@ import {
 } from 'app/components'
 import { Giphy } from 'app/api/giphy'
 
+const mapStateToProps = (state) => {
+  const { images } = state.giphy
+  return { images }
+}
+
 @withRouter
+@connect(mapStateToProps)
 export default class Home extends Component {
-  state = { searchTerm: null, weirdness: null }
+  state = { searchTerm: '', weirdness: 0 }
 
   componentDidMount = () => {
     this.setInitialValues()
@@ -34,27 +41,33 @@ export default class Home extends Component {
     const { images, history, match } = this.props
     const weirdness = match?.params?.weirdness
 
-    if (!searchTerm || images?.[searchTerm]) return null
+    if (!searchTerm || images?.[searchTerm]) {
+      this.setState({ searchTerm: null, weirdness: null })
+      history.push('/')
+    }
+
     if (this.timeout) clearTimeout(this.timeout)
+    if (searchTerm !== match.params.searchTerm) history.push(`/${searchTerm}`)
     this.timeout = setTimeout(() => {
-      history.push(`/${searchTerm}`)
       Giphy.translateGif(searchTerm, weirdness)
     }, 500)
   }
 
   render () {
-    const { match } = this.props
+    const { match, images } = this.props
     const { searchTerm, weirdness } = match?.params
+    const image = images?.[searchTerm]
 
     return (
       <S.HomePage>
         <S.SearchComponents>
           <SearchSection initialValues={{ searchTerm, weirdness }} onChange={this.handleGifySearch} />
-          <S.SearchActions>
-            <WeirdnessSlider />
-            <LikeButton />
-          </S.SearchActions>
-          <SearchResults />
+          {image &&
+            <S.SearchActions>
+              <WeirdnessSlider />
+              <LikeButton />
+            </S.SearchActions>}
+          <SearchResults loading={!image && searchTerm} />
         </S.SearchComponents>
         <LikedGifs />
       </S.HomePage>
