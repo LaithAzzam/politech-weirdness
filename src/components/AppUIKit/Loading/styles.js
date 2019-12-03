@@ -8,4 +8,8 @@ export const Wrap = styled.div`
   align-items: center;
 `
 
-export const StyledSpinner = styled(Spinner)``
+export const StyledSpinner = styled(Spinner)`
+  rect {
+    fill: red;
+  }
+`

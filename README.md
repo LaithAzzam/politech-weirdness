@@ -1,12 +1,6 @@
-# Nova
+# Politech Weirdness
 
-Open source, feature rich React boilerplate used to kickstart production ready web apps.
-
-#### 🚀 Launch web apps faster with [Yawnch](https://yawnch.com)
-
-#### ⭐ [Live Demo](https://nova.yawnch.com)
-
-#### 📖 [Storybook](https://yawnch.github.io/nova)
+#### 🚀 Built with [Nova](https://github.com/yawnch/nova)
 
 ## Getting Started
 
@@ -24,29 +18,6 @@ Starts a local dev server at localhost:8080. The port can be customized by updat
 #### `npm run storybook`
 
 Starts a local Storybook server and opens it in your browser.
-
-### Deployment
-
-The app is hosted on AWS using S3, CloudFront, ACM, and Route53.
-
-CircleCI is configured to deploy to different environments based on changes to key branch names.
-
-| Branch Name | Environment |
-|:---|:---|
-| `master` | production |
-| `staging` | staging |
-| `dev`, `develop` | dev |
-
-#### Manual deployment
-
-#### `npm run deploy:<env>`
-
-This command will first build the app in production mode, meaning code will be minified and no local dev server will be started, using the appropriate environment config variables. 
-
-```
-npm run deploy:staging
-npm run deploy:production
-```
 
 ## Storybook
 

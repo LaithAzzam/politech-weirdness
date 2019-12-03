@@ -2,6 +2,7 @@ export YawnchLogo from './YawnchLogo'
 export Menu from './Menu'
 export Spinner from './Spinner'
 export Check from './Check'
+export Image from './Image'
 
 export ReactLogo from './ReactLogo'
 export Redux from './Redux'

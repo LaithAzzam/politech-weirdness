@@ -4,6 +4,6 @@ import * as S from './styles'
 
 export default class Loading extends Component {
   render () {
-    return <S.Wrap><S.StyledSpinner /></S.Wrap>
+    return <S.Wrap {...this.props}><S.StyledSpinner /></S.Wrap>
   }
 }

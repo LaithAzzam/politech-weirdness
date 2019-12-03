@@ -4,12 +4,12 @@ import { Colors, Type } from 'app/styles'
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
-    min-height: 100vh;
     ${Type.body};
     font-family: ${Type.fontFace};
     margin: 0;
     padding: 0;
     max-width: 100vw;
+    height: 100%;
     overflow-x: hidden;
     background-color: ${Colors.beige10};
     color: ${Colors.gray10};
@@ -26,6 +26,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   #app {
-    min-height: 100%;
+    height: 100%;
   }
 `
