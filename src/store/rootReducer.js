@@ -4,6 +4,7 @@ import createHistory from './history'
 import app from './app/reducer'
 import api from './api/reducer'
 import apiStatus from './apiStatus/reducer'
+import giphy from './giphy/reducer'
 import { saveState } from 'app/store/localStorage'
 
 const history = createHistory()
@@ -11,6 +12,7 @@ const history = createHistory()
 const appReducer = combineReducers({
   app,
   api,
+  giphy,
   apiStatus,
   router: connectRouter(history)
 })
