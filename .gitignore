@@ -30,4 +30,5 @@ storybook-static/
 
 .DS_Store
 
+.firebase
 *.code-workspace

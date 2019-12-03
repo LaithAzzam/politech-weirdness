@@ -3,7 +3,7 @@ import createApiAction from '../createApiAction'
 
 const baseUrl = '//api.giphy.com/v1'
 const prefix = 'GIPHY'
-const GIPHY_API_KEY = '2f0HI5TP2i2qXHnhb6Z1VI3hugHCFAFT'
+const GIPHY_API_KEY = process.env.GIPHY_API_KEY
 
 export default class Giphy {
   static translateGif = async (searchTerm, weirdness) => {
