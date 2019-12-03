@@ -5,15 +5,23 @@ import { TextField } from 'app/ui-kit'
 
 export const SearchSectionComponent = styled.div`
   box-sizing: border-box;
-
-  p {
-    margin-bottom: ${Sizes.padding};
-
-    &:last-of-type {
-      margin-bottom: ${Sizes.paddingLarge};
-    }
-  }
 `
 
 export const StyledSearch = styled(TextField)`
+`
+
+export const SearchTitle = styled.h2`
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+`
+
+export const SearchSteps = styled.ul`
+  margin: 0;
+  padding: ${Sizes.paddingMedium};
+`
+
+export const SearchStep = styled.li`
+  font-size: 16px;
+  margin-bottom: 5px
 `

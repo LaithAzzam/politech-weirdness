@@ -18,8 +18,18 @@ export const HomePage = styled.main`
 
 export const SearchComponents = styled.div`
   ${Sizes.globalPadding};
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 65%;
   flex-shrink: 0;
+
+  @media (min-width: ${Breakpoints.main}) {
+    width: 65%;
+  }
+`
+
+export const SearchActions = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `

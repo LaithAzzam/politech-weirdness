@@ -4,11 +4,11 @@ import * as S from './styles'
 
 export default class SearchResultImage extends Component {
   render () {
-    const { loading } = this.props
+    const { imageUrl } = this.props
 
     return (
-      <S.SearchResultImageComponent loading={loading}>
-        {loading && <S.StyledLoading />}
+      <S.SearchResultImageComponent {...this.props}>
+        {!imageUrl && <S.StyledImageIcon />}
       </S.SearchResultImageComponent>
     )
   }

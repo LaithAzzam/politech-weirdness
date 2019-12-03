@@ -5,13 +5,13 @@ import { Colors, Sizes } from 'app/styles'
 import { Button } from 'app/ui-kit'
 
 export const NavComponent = styled.header`
+  ${Sizes.globalPadding};
   height: ${Sizes.navHeight};
   background-color: ${Colors.white080};
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 ${Sizes.paddingMedium};
   box-sizing: border-box;
   position: fixed;
   top: 0;

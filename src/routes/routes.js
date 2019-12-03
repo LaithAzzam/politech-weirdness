@@ -10,7 +10,7 @@ export default [{
       path: '/',
       component: AppRoot,
       routes: [{
-        path: '/',
+        path: '/:searchTerm?/:weirdness?',
         exact: true,
         component: Home,
         meta: {
