@@ -31,7 +31,6 @@ export default class LikeButton extends Component {
     }
 
     newLikedImages.push(image)
-    console.log('newLikedImages: ', newLikedImages)
 
     setLikedImages(newLikedImages)
   }

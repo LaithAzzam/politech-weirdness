@@ -15,7 +15,6 @@ export default class ResultsModal extends Component {
     const { likedImages } = this.props
     let score = 0
     likedImages.forEach(image => {
-      console.log('image: ', image)
       score = score + parseInt(image.weirdness)
     })
     const average = score / likedImages.length

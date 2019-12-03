@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 import * as S from './styles'
-import { weirdnessField } from 'app/data'
+import { searchField } from 'app/data'
 import withInformed from '../withInformed/withInformed'
 
 const mapStateToProps = (state) => {
@@ -49,7 +49,7 @@ export default class SearchSection extends Component {
       <S.SearchSectionComponent>
         <S.SearchTitle>Find out how weird you are by selecting the GIFs that make you laugh.</S.SearchTitle>
         <this.SearchSteps />
-        <S.StyledSearch {...weirdnessField.searchTerm} onChange={(event) => { onChange(event.target.value) }} disableError />
+        <S.StyledSearch {...searchField.searchTerm} onChange={(event) => { onChange(event.target.value) }} disableError />
       </S.SearchSectionComponent>
     )
   }
